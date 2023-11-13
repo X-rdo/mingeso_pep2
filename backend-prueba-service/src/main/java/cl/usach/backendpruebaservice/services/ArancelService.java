@@ -19,7 +19,7 @@ public class ArancelService {
     public void verificarMontos(String rut){
         System.out.println("rut: "+rut);
         ResponseEntity<String> response = restTemplate.exchange(
-                "http://localhost:8002/cuotas/actualizarMontos/"+rut,
+                "http://localhost:8080/cuotas/actualizarMontos/"+rut,
                 HttpMethod.PUT,
                 null,
                 new ParameterizedTypeReference<>() {}
@@ -29,7 +29,7 @@ public class ArancelService {
      public List<Long> datosLong(String rut){
          System.out.println("rut: "+rut);
          ResponseEntity<List<Long>> response = restTemplate.exchange(
-                 "http://localhost:8002/cuotas/datosLong/"+rut,
+                 "http://localhost:8080/cuotas/datosLong/"+rut,
                  HttpMethod.GET,
                  null,
                  new ParameterizedTypeReference<List<Long>>() {}
@@ -40,7 +40,7 @@ public class ArancelService {
      public List<Integer> datosEntero(String rut){
          System.out.println("rut: "+rut);
          ResponseEntity<List<Integer>> response = restTemplate.exchange(
-                 "http://localhost:8002/cuotas/datosEnteros/"+rut,
+                 "http://localhost:8080/cuotas/datosEnteros/"+rut,
                  HttpMethod.GET,
                  null,
                  new ParameterizedTypeReference<List<Integer>>() {}
@@ -51,7 +51,7 @@ public class ArancelService {
      public EstudianteEntity findByRut(String rut){
          System.out.println("rut: "+rut);
          ResponseEntity<EstudianteEntity> response = restTemplate.exchange(
-                 "http://localhost:8001/estudiante/"+rut,
+                 "http://localhost:8080/estudiante/"+rut,
                  HttpMethod.GET,
                  null,
                  new ParameterizedTypeReference<EstudianteEntity>() {}
@@ -62,7 +62,7 @@ public class ArancelService {
      public LocalDate ultimoPago(String rut){
          System.out.println("rut: "+rut);
          ResponseEntity<LocalDate> response = restTemplate.exchange(
-                 "http://localhost:8002/cuotas/ultimoPago/"+rut,
+                 "http://localhost:8080/cuotas/ultimoPago/"+rut,
                  HttpMethod.GET,
                  null,
                  new ParameterizedTypeReference<LocalDate>() {}

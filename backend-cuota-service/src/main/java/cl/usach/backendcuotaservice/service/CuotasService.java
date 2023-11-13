@@ -22,15 +22,12 @@ public class CuotasService {
     CuotasRepository cuotasRepository;
 
     @Autowired
-    AdministracionService administracionService;
-
-    @Autowired
     RestTemplate restTemplate;
 
     public EstudianteEntity findByRut(String rut){
         System.out.println("rut: "+rut);
         ResponseEntity<EstudianteEntity> response = restTemplate.exchange(
-                "http://localhost:8001/estudiante/"+rut,
+                "http://localhost:8080/estudiante/"+rut,
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<EstudianteEntity>() {}
@@ -207,7 +204,7 @@ public class CuotasService {
 
     public List<PruebaEntity> obtenerPruebasEstudiante(String rut) {
         ResponseEntity<List<PruebaEntity>> response = restTemplate.exchange(
-                "http://localhost:8003/prueba/"+rut,
+                "http://localhost:8080/prueba/"+rut,
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<List<PruebaEntity>>() {}
@@ -218,7 +215,7 @@ public class CuotasService {
     public Integer obtenerPromedio(String rut){
         System.out.println("rut: "+rut);
         ResponseEntity<Integer> response = restTemplate.exchange(
-                "http://localhost:8003/prueba/promedio/"+rut,
+                "http://localhost:8080/prueba/promedio/"+rut,
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<Integer>() {}
@@ -247,7 +244,7 @@ public class CuotasService {
     }
 
     public void saveEstudiante(EstudianteEntity estudiante) {
-        String url = "http://localhost:8001/estudiante/guardar";
+        String url = "http://localhost:8080/estudiante/guardar";
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -357,7 +354,7 @@ public class CuotasService {
     public Integer cantidadExamenesRendidos(String rut){
         System.out.println("rut: "+rut);
         ResponseEntity<Integer> response = restTemplate.exchange(
-                "http://localhost:8003/prueba/cantExamenesRendidos/"+rut,
+                "http://localhost:8080/prueba/cantExamenesRendidos/"+rut,
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<Integer>() {}
