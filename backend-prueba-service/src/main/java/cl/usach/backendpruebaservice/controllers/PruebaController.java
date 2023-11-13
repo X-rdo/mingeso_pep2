@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-@RequestMapping("/prueba")
+@RequestMapping("/arancel/prueba")
 @RestController
 public class PruebaController {
 

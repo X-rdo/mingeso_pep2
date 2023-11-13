@@ -204,7 +204,7 @@ public class CuotasService {
 
     public List<PruebaEntity> obtenerPruebasEstudiante(String rut) {
         ResponseEntity<List<PruebaEntity>> response = restTemplate.exchange(
-                "http://localhost:8080/prueba/"+rut,
+                "http://localhost:8080/arancel/prueba/"+rut,
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<List<PruebaEntity>>() {}
@@ -215,7 +215,7 @@ public class CuotasService {
     public Integer obtenerPromedio(String rut){
         System.out.println("rut: "+rut);
         ResponseEntity<Integer> response = restTemplate.exchange(
-                "http://localhost:8080/prueba/promedio/"+rut,
+                "http://localhost:8080/arancel/prueba/promedio/"+rut,
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<Integer>() {}
@@ -354,7 +354,7 @@ public class CuotasService {
     public Integer cantidadExamenesRendidos(String rut){
         System.out.println("rut: "+rut);
         ResponseEntity<Integer> response = restTemplate.exchange(
-                "http://localhost:8080/prueba/cantExamenesRendidos/"+rut,
+                "http://localhost:8080/arancel/prueba/cantExamenesRendidos/"+rut,
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<Integer>() {}
