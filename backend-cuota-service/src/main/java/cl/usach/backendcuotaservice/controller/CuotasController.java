@@ -78,14 +78,7 @@ public class CuotasController {
         }
         return ResponseEntity.notFound().build();
     }
-/*
-    @GetMapping("/datosLong/{rut}")
-    public ResponseEntity<List<Long>> datosLong(@PathVariable("rut") String rut) {
-        List<Long> datosLong = cuotasService.datosLong(rut);
-        return ResponseEntity.ok(datosLong);
-    }
 
- */
 
     @GetMapping("/datosEnteros/{rut}")
     public ResponseEntity<List<Integer>> datosEnteros(@PathVariable("rut") String rut){
@@ -95,14 +88,7 @@ public class CuotasController {
         }
         return ResponseEntity.notFound().build();
     }
-    /*
-    @GetMapping("/datosEnteros/{rut}")
-    public ResponseEntity<List<Integer>> datosEnteros(@PathVariable("rut") String rut) {
-        List<Integer> datosEnteros= cuotasService.datosEnteros(rut);
 
-    }
-
-     */
 
     @GetMapping("/ultimoPago/{rut}")
     public ResponseEntity<LocalDate> ultimoPago(@PathVariable("rut") String rut) {
