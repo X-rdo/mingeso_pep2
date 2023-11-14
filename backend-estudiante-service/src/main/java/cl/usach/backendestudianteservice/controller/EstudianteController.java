@@ -23,6 +23,7 @@ public class EstudianteController {
     public ResponseEntity<EstudianteEntity> newEstudiante(@RequestBody EstudianteEntity estudiante) {
         LocalDate anio_ingreso = LocalDate.now();
         estudiante.setAnio_ingreso(anio_ingreso);
+        estudiante.setTipo_pago("A Cuotas");
         estudianteService.guardarEstudiante(estudiante);
         return ResponseEntity.ok(estudiante);
     }
@@ -42,6 +43,7 @@ public class EstudianteController {
 
     @GetMapping("/guardar")
     public ResponseEntity<EstudianteEntity> findByRut(EstudianteEntity estudiante) {
+
         EstudianteEntity estudianteEntity = estudianteRepository.save(estudiante);
         System.out.println(estudianteEntity);
         return ResponseEntity.ok(estudianteEntity);

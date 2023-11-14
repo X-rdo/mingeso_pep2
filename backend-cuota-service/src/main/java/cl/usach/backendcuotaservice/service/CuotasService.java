@@ -302,7 +302,7 @@ public class CuotasService {
         Long montoTotal = 0L;
         for (CuotasEntity cuota: cuotas) {
             if(cuota.getEstado().equals("Pagado")){
-                montoTotal += cuota.getMonto();
+                montoTotal += cuota.getMonto_variable();
             }
         }
         return montoTotal;
@@ -312,7 +312,7 @@ public class CuotasService {
         Long montoTotal = 0L;
         for (CuotasEntity cuota: cuotas) {
             if(cuota.getEstado().equals("No pagada")){
-                montoTotal += cuota.getMonto();
+                montoTotal += cuota.getMonto_variable();
             }
         }
         return montoTotal;

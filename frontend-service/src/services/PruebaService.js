@@ -12,6 +12,9 @@ class PruebaService {
     getFileType1Info(){
         return axios.get(CUOTAS_API_URL2 + "get-info-archivo");
     }
+    resumenEstadoPagoMostrar(rut){
+        return axios.get(CUOTAS_API_URL + "resumen/" + rut);
+    }
 
     resumenEstadoPago(rut){
         return axios.post (CUOTAS_API_URL + "resumen-estado-pago-datos/"+rut);

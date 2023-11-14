@@ -43,7 +43,8 @@ public class EstudianteService {
     public EstudianteEntity guardarEstudiante(EstudianteEntity estudiante){
         estudiante.setArancel(generarArancel(estudiante));
         estudianteRepository.save(estudiante);
-        return estudiante;}
+        return estudiante;
+    }
 
     public Optional<EstudianteEntity> obtenerPorId(String id){return estudianteRepository.findById(id);}
 
