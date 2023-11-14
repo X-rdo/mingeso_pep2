@@ -31,6 +31,7 @@ public class CuotasController {
             if(cuotasService.findCuotaByRut(estudianteEntity.getRut()).isEmpty()){
                 cuotasService.generarCuotas(estudianteEntity, Integer.parseInt(cuotas));
                 List<CuotasEntity> cuotasEntities = cuotasService.findCuotaByRut(estudianteEntity.getRut());
+                cuotasService.verificarYActualizarMontos(estudianteEntity.getRut());
                 System.out.println(cuotasEntities);
                 return ResponseEntity.ok(cuotasEntities);
             }
@@ -45,6 +46,7 @@ public class CuotasController {
         EstudianteEntity estudianteEntity = cuotasService.findByRut(rut);
         System.out.println(estudianteEntity);
         if(estudianteEntity != null){
+            cuotasService.verificarYActualizarMontos(rut);
             List<CuotasEntity> cuotasEntities = cuotasService.findCuotaByRut(estudianteEntity.getRut());
             return ResponseEntity.ok(cuotasEntities);
         }

@@ -11,8 +11,20 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 public class ArancelEntity {
-    private EstudianteEntity estudiante;
-    private List<Long> datosLong;
-    private List<Integer> datosEnteros;
+    private String rut;
+    private String nombre;
+    private String apellido;
+    private String tipoPago;
+
+    private int cantExamenesRendidos;
+    private int promedio;
+    private int cantCuotas;
+    private int cantCuotasPagadas;
+    private int cantCuotasRetrasadas;
+
+    private long montoTotalArancel;
+    private long montoPagado;
+    private long montoPorPagar;
+
     private LocalDate ultimoPago;
 }

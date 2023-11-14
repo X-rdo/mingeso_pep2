@@ -29,9 +29,21 @@ public class ArancelController {
     @PostMapping("/resumen-estado-pago-datos/{rut}")
     public ResponseEntity<ArancelEntity> resumenEstadoPago(@PathVariable("rut") String rut){
         ArancelEntity arancelMostrar = new ArancelEntity();
-        arancelMostrar.setEstudiante(arancelService.findByRut(rut));
-        arancelMostrar.setDatosEnteros(arancelService.datosEntero(rut));
-        arancelMostrar.setDatosLong(arancelService.datosLong(rut));
+        arancelMostrar.setRut(arancelService.findByRut(rut).getRut());
+        arancelMostrar.setNombre(arancelService.findByRut(rut).getNombres());
+        arancelMostrar.setApellido(arancelService.findByRut(rut).getApellidos());
+        arancelMostrar.setTipoPago(arancelService.findByRut(rut).getTipo_pago());
+
+        arancelMostrar.setCantExamenesRendidos(arancelService.datosEntero(rut).get(0));
+        arancelMostrar.setPromedio(arancelService.datosEntero(rut).get(1));
+        arancelMostrar.setCantCuotas(arancelService.datosEntero(rut).get(2));
+        arancelMostrar.setCantCuotasPagadas(arancelService.datosEntero(rut).get(3));
+        arancelMostrar.setCantCuotasRetrasadas(arancelService.datosEntero(rut).get(4));
+
+        arancelMostrar.setMontoTotalArancel(arancelService.datosLong(rut).get(0));
+        arancelMostrar.setMontoPagado(arancelService.datosLong(rut).get(1));
+        arancelMostrar.setMontoPorPagar(arancelService.datosLong(rut).get(2));
+
         arancelMostrar.setUltimoPago(arancelService.ultimoPago(rut));
         return ResponseEntity.ok(arancelMostrar);
     }

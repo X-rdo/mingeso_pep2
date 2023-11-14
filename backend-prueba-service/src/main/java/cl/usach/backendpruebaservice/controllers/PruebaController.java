@@ -25,9 +25,9 @@ public class PruebaController {
 
     @PostMapping("/cargar-archivo")
     public void cargarArchivoPost(
-            @RequestParam("archivo") MultipartFile archivo) {
-        pruebaService.guardarArchivo(archivo);
-        pruebaService.leerCsv(archivo.getOriginalFilename());
+            @RequestParam("file") MultipartFile file) {
+        pruebaService.guardarArchivo(file);
+        pruebaService.leerCsv(file.getOriginalFilename());
     }
 
     @GetMapping("/{rut}")
